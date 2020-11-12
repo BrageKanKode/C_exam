@@ -29,7 +29,7 @@ void bubbleSort(struct _LIST *pList[], int n)
    }
 }
 
-void getOne(LIST *pThis[])
+int getOne(LIST *pThis[])
 {
 
    int size = pThis[1]->size;
@@ -38,11 +38,7 @@ void getOne(LIST *pThis[])
    {
       if (pThis[i]->id == pThis[i]->intToFind)
       {
-         printf("found it!\n"
-                "String: %s\n"
-                "index: %d\n",
-                pThis[i]->szString, pThis[i]->intToFind);
-         return;
+         return pThis[i]->id;
       }
    }
 }
@@ -101,7 +97,7 @@ int main(int argc, char *argv[])
    printf("Getting one struct: \n");
    if (j <= iargc && j >= 1)
    {
-      getOne(&list[j - 1]);
+      printf("index: %d\n", getOne(&list[j - 1]));
    }
    else
    {

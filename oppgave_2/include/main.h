@@ -22,7 +22,7 @@ typedef struct _LIST
 // Prototypes
 
 void bubbleSort(struct _LIST *list[], int iargc);
-void getOne(struct _LIST *pThis[]);
+int getOne(struct _LIST *pThis[]);
 
 //void function(void);
 
