@@ -29,9 +29,6 @@ void main()
 
             fputs(decodeTheThing(buffer, strlen(buffer)), file_to_write);
         }
-        printf("\n read file length: %ld\n", strlen(buffer));
-        printf("First letter: %c\n", buffer[0]);
-        buffer[iNumberOfCharacters] = '\0';
     }
 }
 
@@ -59,32 +56,26 @@ char *decodeTheThing(char chinese[], int len_str)
                 num = num << 6;
                 count_bits += 6;
             }
-
             if (chinese[i + j] >= 'A' && chinese[i + j] <= 'Z')
             {
                 num = num | (chinese[i + j] - 'A');
             }
-
             else if (chinese[i + j] >= 'a' && chinese[i + j] <= 'z')
             {
                 num = num | (chinese[i + j] - 'a' + 26);
             }
-
             else if (chinese[i + j] >= '0' && chinese[i + j] <= '9')
             {
                 num = num | (chinese[i + j] - '0' + 52);
             }
-
             else if (chinese[i + j] == '+')
             {
                 num = num | 62;
             }
-
             else if (chinese[i + j] == '/')
             {
                 num = num | 63;
             }
-
             else
             {
                 num = num >> 2;

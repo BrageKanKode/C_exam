@@ -107,7 +107,7 @@ void dostuff(int socket, char *serverAddress, int iPort)
     sprintf(server_message, "You have reached the server '%s' on port '%d'\n"
                             "Would you like to continue?(Y/N)",
             serverAddress, iPort);
-    //strcpy(server_message, "You have reached the server on port 127.0.0.1\n Would you like to continue?(Y/N)");
+
     send(socket, server_message, sizeof(server_message), 0);
 
     //Set buffer to 0 and use it to read the value from client

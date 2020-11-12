@@ -46,6 +46,7 @@ int main(int argc, char *argv[])
     if (connect(sockFd, (struct sockaddr *)&saAddr, sizeof(saAddr)) < 0)
     {
         printf("connect failed with %i\n", errno);
+        return -1;
     }
 
     //recieve data from the server

@@ -31,7 +31,7 @@ void *myThreadFun(void *ft)
     int iNumberOfCharacters = pft->iNum;
     char character;
 
-    file_to_read = fopen("textfile.txt", "r");
+    file_to_read = fopen(pft->filename, "r");
 
     if (file_to_read != NULL)
     {
@@ -41,6 +41,11 @@ void *myThreadFun(void *ft)
             strcpy(&buffer[iNumberOfCharacters], &character);
         }
         pft->buffer = buffer;
+    }
+    else
+    {
+        printf("File not found\n");
+        return NULL;
     }
     if (character == EOF)
     {
@@ -64,6 +69,11 @@ int main(int argc, char *argv[])
     ft->done = 0;
 
     int characteramount = 0;
+    if (argc < 2)
+    {
+        printf("Too few arguments\n");
+        return -1;
+    }
 
     while (ft->done != 1)
     {
