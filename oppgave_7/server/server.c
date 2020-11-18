@@ -101,7 +101,7 @@ void dostuff(int socket, char *serverAddress, int iPort)
 {
     char buffer[256];
     char server_message[256];
-    int readvalue;
+    int iReadvalue;
     int iWannaTalk = -1;
 
     sprintf(server_message, "You have reached the server '%s' on port '%d'\n"
@@ -112,9 +112,9 @@ void dostuff(int socket, char *serverAddress, int iPort)
 
     //Set buffer to 0 and use it to read the value from client
     memset(buffer, 0, 256);
-    readvalue = read(socket, buffer, 256 - 1);
+    iReadvalue = read(socket, buffer, 256 - 1);
 
-    if (readvalue < 0)
+    if (iReadvalue < 0)
     {
         printf("read failed with %i\n", errno);
         strcpy(server_message, "Failed to read input");
@@ -143,8 +143,8 @@ void dostuff(int socket, char *serverAddress, int iPort)
         strcpy(server_message, "still connected");
         send(socket, server_message, sizeof(server_message), 0);
         memset(buffer, 0, 256);
-        readvalue = read(socket, buffer, 256 - 1);
-        if (readvalue < 0)
+        iReadvalue = read(socket, buffer, 256 - 1);
+        if (iReadvalue < 0)
         {
             printf("read failed with %i\n", errno);
         }

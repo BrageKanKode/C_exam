@@ -5,6 +5,4 @@
 
 void dostuff(int socket, char *serverAddress, int iPort);
 
-//void function(void);
-
 #endif //__MAIN_H_

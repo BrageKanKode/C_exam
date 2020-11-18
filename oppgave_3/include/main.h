@@ -1,12 +1,6 @@
 #ifndef __MAIN_H__
 #define __MAIN_H__
 
-#define OK 0
-#define ERROR 1
-
-#define FALSE 0
-#define TRUE 1
-
 #define MAX_SIZE 32
 
 struct _LIST
@@ -23,11 +17,8 @@ struct _LIST *pHead = NULL;
 struct _LIST *pTail = NULL;
 
 // Prototypes
-
-void removeMiddleElement(struct _LIST current);
 void InsertInList(char tempName[], int tempAge, char tempKommune[], int iKey);
 static void PrintList();
-void createData(char *string);
 void find(struct _LIST *pHead, char *name);
 void deleteNode(struct _LIST *pCurrent);
 void findDeleteNode(char *name);

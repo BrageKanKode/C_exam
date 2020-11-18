@@ -1,12 +1,6 @@
 #ifndef __MAIN_H__
 #define __MAIN_H__
 
-#define OK 0
-#define ERROR 1
-
-#define FALSE 0
-#define TRUE 1
-
 #define MAX 256
 
 typedef struct _LIST
@@ -23,7 +17,5 @@ typedef struct _LIST
 
 void bubbleSort(struct _LIST *list[], int iargc);
 int getOne(struct _LIST *pThis[]);
-
-//void function(void);
 
 #endif //_MAIN_H_

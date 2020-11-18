@@ -45,12 +45,15 @@ void *myThreadFun(void *ft)
     else
     {
         printf("File not found\n");
+        free(buffer);
         return NULL;
     }
     if (character == EOF)
     {
         pft->done = 1;
     }
+    buffer = NULL;
+    free(buffer);
 
     pthread_mutex_unlock(&mutex);
 
@@ -72,6 +75,7 @@ int main(int argc, char *argv[])
     if (argc < 2)
     {
         printf("Too few arguments\n");
+        free(ft);
         return -1;
     }
 
@@ -87,6 +91,7 @@ int main(int argc, char *argv[])
     }
 
     printf("Total amount of characters read and printed: %d\n", characteramount);
+    free(ft);
 
     return 0;
 }

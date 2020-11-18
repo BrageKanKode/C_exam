@@ -27,6 +27,8 @@ void bubbleSort(struct _LIST *pList[], int n)
          }
       }
    }
+   temp = NULL;
+   free(temp);
 }
 
 int getOne(LIST *pThis[])
@@ -102,6 +104,11 @@ int main(int argc, char *argv[])
    else
    {
       printf("Not valid number\n");
+   }
+
+   for (i = 1; argv[i]; i++)
+   {
+      free(list[i]);
    }
 
    return 0;

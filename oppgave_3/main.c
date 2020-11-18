@@ -8,15 +8,12 @@ void menu()
 {
 
    int iChar;
-   int temp;
    char tempName[MAX_SIZE];
    char tempKommune[MAX_SIZE];
    int tempAge;
    int iKey = 1;
-   char szBuffer[50];
-   char szElements[50];
 
-   // Defined to mute some error messages in terminal
+   // Defined to mute some error messages in terminal for Ubuntu
    int n;
 
    do
@@ -79,8 +76,7 @@ void subMenu()
    int n;
    char tempName[250];
    int tempAge;
-   int option;
-   struct _LIST *pFoundLink = NULL;
+   int iOption;
 
    do
    {
@@ -106,24 +102,24 @@ void subMenu()
       case 2:
          printf("Slett ved gitt ALDER\n");
          n = scanf("%i", &tempAge);
-         option = 1;
-         findDeleteAgeNode(tempAge, option);
+         iOption = 1;
+         findDeleteAgeNode(tempAge, iOption);
 
          break;
 
       case 3:
          printf("Slett OVER ALDER\n");
          n = scanf("%i", &tempAge);
-         option = 2;
-         findDeleteAgeNode(tempAge, option);
+         iOption = 2;
+         findDeleteAgeNode(tempAge, iOption);
 
          break;
 
       case 4:
          printf("Slett UNDER ALDER\n");
          n = scanf("%i", &tempAge);
-         option = 3;
-         findDeleteAgeNode(tempAge, option);
+         iOption = 3;
+         findDeleteAgeNode(tempAge, iOption);
 
          break;
 
@@ -164,11 +160,6 @@ void findDeleteNode(char *name)
 
 void deleteNode(struct _LIST *pCurrent)
 {
-   if (pHead == NULL || pCurrent == NULL)
-   {
-      printf("Head and Tail is NULL\n");
-      return;
-   }
 
    if (pHead == pCurrent)
    {
@@ -186,7 +177,7 @@ void deleteNode(struct _LIST *pCurrent)
    }
 }
 
-void findDeleteAgeNode(int age, int option)
+void findDeleteAgeNode(int age, int iOption)
 {
    struct _LIST *pThis = NULL;
 
@@ -198,7 +189,7 @@ void findDeleteAgeNode(int age, int option)
 
    pThis = pHead;
 
-   switch (option)
+   switch (iOption)
    {
    case 1:
       while (pThis)
@@ -284,6 +275,8 @@ void InsertInList(char name[], int age, char kommune[], int iKey)
    }
 
    pHead = new_node;
+   new_node = NULL;
+   free(new_node);
 }
 
 static void PrintList()

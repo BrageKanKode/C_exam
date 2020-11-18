@@ -12,7 +12,7 @@ typedef struct _CCD
     int convert;
     struct _CCD *p;
 } CCD;
-//
+
 int ProcessCreditcardPaymentFIXED(int a, char *c, char *e, char *n, int printforloop);
 int ProcessCreditcardPayment(int a, char *c, char *e, char *n);
 

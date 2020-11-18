@@ -30,9 +30,10 @@ void main()
             fputs(decodeTheThing(buffer, strlen(buffer)), file_to_write);
         }
     }
+    free(buffer);
 }
 
-char *decodeTheThing(char chinese[], int len_str)
+char *decodeTheThing(char textToDecode[], int len_str)
 {
     char *decoded;
 
@@ -51,28 +52,28 @@ char *decodeTheThing(char chinese[], int len_str)
         for (j = 0; j < 4; j++)
         {
 
-            if (chinese[i + j] != '=')
+            if (textToDecode[i + j] != '=')
             {
                 num = num << 6;
                 count_bits += 6;
             }
-            if (chinese[i + j] >= 'A' && chinese[i + j] <= 'Z')
+            if (textToDecode[i + j] >= 'A' && textToDecode[i + j] <= 'Z')
             {
-                num = num | (chinese[i + j] - 'A');
+                num = num | (textToDecode[i + j] - 'A');
             }
-            else if (chinese[i + j] >= 'a' && chinese[i + j] <= 'z')
+            else if (textToDecode[i + j] >= 'a' && textToDecode[i + j] <= 'z')
             {
-                num = num | (chinese[i + j] - 'a' + 26);
+                num = num | (textToDecode[i + j] - 'a' + 26);
             }
-            else if (chinese[i + j] >= '0' && chinese[i + j] <= '9')
+            else if (textToDecode[i + j] >= '0' && textToDecode[i + j] <= '9')
             {
-                num = num | (chinese[i + j] - '0' + 52);
+                num = num | (textToDecode[i + j] - '0' + 52);
             }
-            else if (chinese[i + j] == '+')
+            else if (textToDecode[i + j] == '+')
             {
                 num = num | 62;
             }
-            else if (chinese[i + j] == '/')
+            else if (textToDecode[i + j] == '/')
             {
                 num = num | 63;
             }
